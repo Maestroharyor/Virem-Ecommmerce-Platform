@@ -1,0 +1,378 @@
+{
+	"menuPrimary": {
+		"menu_1": [{
+				"text": "Home",
+				"url": "/",
+				"extraClass": "menu-item-has-children",
+				"subClass": "sub-menu",
+				"subMenu": [{
+						"text": "Shop For Products",
+						"url": "/shop"
+					},
+					{
+						"text": "Food and Drinks",
+						"url": "/shop/category/236"
+					},
+					{
+						"text": "Fashion",
+						"url": "/shop/category/22"
+					},
+					{
+						"text": "Beauty and Body Care",
+						"url": "/shop/category/25"
+					}
+				]
+			},
+			{
+				"text": "About Virem",
+				"url": "/",
+				"extraClass": "menu-item-has-children",
+				"subClass": "sub-menu",
+				"subMenu": [{
+						"text": "About Us",
+						"url": "/about-us"
+					},
+					{
+						"text": "Contact Us",
+						"url": "/contact-us"
+					},
+					{
+						"text": "Terms and Conditions",
+						"url": "/terms-and-conditions"
+					},
+					{
+						"text": "Privacy Policy",
+						"url": "/privacy-policy"
+					},
+					{
+						"text": "Careers",
+						"url": "/careers"
+					}
+				]
+			},
+			{
+				"text": "My Account",
+				"url": "/account/dashboard",
+				"extraClass": "menu-item-has-children",
+				"subClass": "sub-menu",
+				"subMenu": [{
+						"text": "My Dashboard",
+						"url": "/account/dashboard"
+					},
+					{
+						"text": "Become a Vendor",
+						"url": "/vendors/become-a-vendor"
+					},
+					{
+						"text": "My Orders",
+						"url": "/account/orders"
+					},
+					{
+						"text": "Track my orders",
+						"url": "/account/order-tracking"
+					}
+				]
+			},
+			{
+				"text": "Shopping",
+				"url": "/",
+				"extraClass": "menu-item-has-children",
+				"subClass": "sub-menu",
+				"subMenu": [{
+						"text": "Deals of the day",
+						"url": "/shop"
+					},
+					{
+						"text": "Free Delivery",
+						"url": "/shop"
+					},
+					{
+						"text": "Foods",
+						"url": "/shop/category/236"
+					},
+					{
+						"text": "Fashion",
+						"url": "/shop/category/22"
+					}
+				]
+			},
+			{
+				"text": "Helpful Links",
+				"url": "/",
+				"extraClass": "menu-item-has-children",
+				"subClass": "sub-menu",
+				"subMenu": [{
+						"text": "Our Blog",
+						"url": "/blog"
+					},
+					{
+						"text": "Find Stores",
+						"url": "/vendors"
+					},
+					{
+						"text": "All Products",
+						"url": "/shop"
+					}
+				]
+			}			
+		]
+	},
+	"WPMenu": [{
+			"text": "Browse Products",
+			"url": "/shop"
+		},
+		{
+			"text": "Food & Drinks",
+			"url": "/shop/category/236"
+		},
+		{
+			"text": "Fashion",
+			"url": "/shop/category/22"
+		},
+		{
+			"text": "Beauty & Body Care",
+			"url": "/shop/category/25"
+		},
+		{
+			"text": "Blog",
+			"url": "/blog"
+		}
+	],
+	"product_categories": [{
+			"icon": "icon-laundry",
+			"text": "Computers and Electronics",
+			"url": "/shop",
+			"extraClass": "menu-item-has-children has-mega-menu",
+			"subClass": "sub-menu",
+			"mega": true,
+			"megaContent": [{
+					"heading": "Laptops",
+					"megaItems": [{
+							"text": "Laptops",
+							"url": "/shop/category/26"
+						},
+						{
+							"text": "Apple",
+							"url": "/shop/category/291"
+						}
+					]
+				},
+				{
+					"heading": "Accessories",
+					"megaItems": [{
+							"text": "Laptop Accessories",
+							"url": "/shop/category/292"
+						},
+						{
+							"text": "Gadgets",
+							"url": "/shop/category/23"
+						},
+						{
+							"text": "Cameras",
+							"url": "/shop/category/92"
+						}
+					]
+				}
+			]
+		},
+		{
+			"icon": "icon-laundry",
+			"text": "Phones and Tablets",
+			"url": "/shop",
+			"extraClass": "menu-item-has-children has-mega-menu",
+			"subClass": "sub-menu",
+			"mega": true,
+			"megaContent": [{
+				"heading": "Phones and Tablets Categories",
+				"megaItems": [{
+						"text": "Phones",
+						"url": "/shop/category/240"
+					},
+					{
+						"text": "Smartphones",
+						"url": "/shop/category/66"
+					},
+					{
+						"text": "Ear Piece",
+						"url": "/shop/category/289"
+					},
+					{
+						"text": "Phone Accessories",
+						"url": "/shop/category/283"
+					}
+				]
+			}]
+		},
+		{
+			"icon": "icon-laundry",
+			"text": "Fashion",
+			"url": "/shop",
+			"extraClass": "menu-item-has-children has-mega-menu",
+			"subClass": "sub-menu",
+			"mega": true,
+			"megaContent": [{
+					"heading": "Women's Fashion",
+					"megaItems": [{
+							"text": "Fashion",
+							"url": "/shop/category/22"
+						},
+						{
+							"text": "Women's Clothing",
+							"url": "/shop/category/195"
+						},
+						{
+							"text": "Jewelry",
+							"url": "/shop/category/39"
+						},
+						{
+							"text": "Hair",
+							"url": "/shop/category/163"
+						},
+						{
+							"text": "Ladies Shoes",
+							"url": "/shop/category/369"
+						},
+						{
+							"text": "Beauty",
+							"url": "/shop/category/25"
+						},
+						{
+							"text": "Bags",
+							"url": "/shop/category/111"
+						}
+					]
+				},
+				{
+					"heading": "Men's Fashion",
+					"megaItems": [{
+							"text": "Fashion",
+							"url": "/shop/category/22"
+						},
+						{
+							"text": "Trousers",
+							"url": "/shop/category/325"
+						},
+						{
+							"text": "Palm Slippers",
+							"url": "/shop/category/320"
+						}
+					]
+				},
+				{
+					"heading": "Unisex",
+					"megaItems": [{
+							"text": "Watches",
+							"url": "/shop/category/194"
+						},
+						{
+							"text": "Fashion",
+							"url": "/shop/category/22"
+						},
+						{
+							"text": "Clothing",
+							"url": "/shop/category/35"
+						},
+						{
+							"text": "T-Shirts",
+							"url": "/shop/category/150"
+						},
+						{
+							"text": "Shoes",
+							"url": "/shop/category/47"
+						}
+					]
+				}
+			]
+		},
+		{
+			"icon": "icon-laundry",
+			"text": "Foods",
+			"url": "/shop",
+			"extraClass": "menu-item-has-children has-mega-menu",
+			"subClass": "sub-menu",
+			"mega": true,
+			"megaContent": [{
+				"heading": "Foods Categories",
+				"megaItems": [{
+						"text": "Foods",
+						"url": "/shop/category/236"
+					},
+					{
+						"text": "Fast Foods",
+						"url": "/shop/category/229"
+					},
+					{
+						"text": "Groceries",
+						"url": "/shop/category/173"
+					}
+				]
+			}]
+		}, {
+			"icon": "icon-diamond2",
+			"text": "Electronics",
+			"url": "/shop/category/567"
+		},
+		{
+			"icon": "icon-laundry",
+			"text": "Other Categories",
+			"url": "/shop",
+			"extraClass": "menu-item-has-children has-mega-menu",
+			"subClass": "sub-menu",
+			"mega": true,
+			"megaContent": [{
+					"heading": "Beauty, Health and Personal Care",
+					"megaItems": [{
+							"text": "Health",
+							"url": "/shop/category/24"
+						},
+						{
+							"text": "Suppliments",
+							"url": "/shop/category/261"
+						},
+						{
+							"text": "Body Soaps",
+							"url": "/shop/category/264"
+						},
+						{
+							"text": "Condiments",
+							"url": "/shop/category/226"
+						}, {
+							"text": "Fragrance",
+							"url": "/shop/category/306"
+						}, {
+							"text": "Skin Care",
+							"url": "/shop/category/255"
+						}, {
+							"text": "Disinfectants",
+							"url": "/shop/category/271"
+						}, {
+							"text": "Toothpaste",
+							"url": "/shop/category/273"
+						}
+					]
+				}, {
+					"heading": "Sports and Fitness",
+					"megaItems": [{
+						"text": "Welness and Fitness",
+						"url": "/shop/category/179"
+					}]
+				}, {
+					"heading": "Others",
+					"megaItems": [{
+						"text": "Security",
+						"url": "/shop/category/91"
+					}, {
+						"text": "Free Delivery",
+						"url": "/shop/category/379"
+					}, {
+						"text": "Others",
+						"url": "/shop/category/15"
+					}]
+				}
+
+
+			]
+		}
+
+	]
+}

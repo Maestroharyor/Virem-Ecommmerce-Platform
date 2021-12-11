@@ -1,0 +1,103 @@
+.whatsapp_chat {
+    position: fixed;
+    left: 5px;
+    bottom: 79px;
+    z-index: 500;
+    
+}
+
+.chat{
+    width: 100%;
+    border-radius: 4rem;
+}
+
+.chat_bubble, .chat_message_box{
+    max-width: calc(100% -30px)
+}
+
+.chat_bubble::before{
+    position: absolute;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    top: 15px;
+    left: 4px;
+    width: 12px;
+    height: 19px;
+}
+
+.chat_message_box{
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 20px;
+    border-color: #000;
+}
+
+.chat_name{
+    font-size: 1.5rem;
+}
+
+.whatsapp_floating_button{
+    border-radius: 50px;
+    padding: 1rem 5rem;
+}
+/* .form_header {
+
+} */
+
+.form_chat_button{
+    background-color: #00C962 !important;
+    padding: .6rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    background-color: #00C962;
+    border: 0;
+}
+
+.form_chat_button:hover{
+    background-color: #018C45 !important;
+}
+
+.form_chat_button:focus, .form_chat_button:active{
+    box-shadow: none;
+}
+
+
+@media (min-width: 576px) { 
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .whatsapp_chat {
+        left: 20px;
+        bottom: 40px;
+        
+    }
+    
+    .chat {
+        width: 400px;
+        
+    }
+
+    .chat_bubble, .chat_message_box{
+        max-width: calc(100% - 66px)
+    }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+
+}

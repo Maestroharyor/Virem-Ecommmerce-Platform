@@ -1,0 +1,323 @@
+/* .wpviremproducts a,  .wpviremproducts p{
+    color: #fff;
+    font-size: 2.3rem;
+    margin-top: 0.2rem;
+}
+
+.wpviremproducts svg{
+    font-size: 3rem;
+}
+
+.wpviremproducts .products{
+    background-color: #df4141;
+    padding: 2.5rem 2rem 2rem 2rem;
+    transition: all 0.3s ease-in;
+}
+
+.wpviremproducts .products:hover{
+    background-color: #000;
+    cursor: pointer;
+} */
+.wpviremproducts p{
+    margin: 0 0 0;
+    font-size: 1.6rem;
+}
+
+/* .wpviremproducts a{
+     font-size: 3rem; 
+} */
+
+.wpviremproducts a{
+    width: calc(33% - 1rem);
+}
+
+
+.wpviremproducts a p{
+    font-size: 1.2rem;
+}
+
+.wpviremproducts a svg{
+    border-radius: 50%;
+    font-size: 4rem;
+    padding: .8rem;
+}
+
+.wpviremproducts a svg.s-1{
+    background-color: #df4141;
+}
+
+.wpviremproducts a svg.s-2{
+    background-color: #0040CE;
+}
+
+.wpviremproducts a svg.s-3{
+    background-color: #BE0000;
+}
+
+.wpviremproducts a svg.s-4{
+    background-color: #FF9900;
+}
+
+.wpviremproducts a svg.s-5{
+    background-color: #378EF9;
+}
+
+.wpviremproducts a svg.s-6{
+    background-color: #f18035;
+}
+
+.navigation__extra > li a {
+    color: #fff;
+}
+
+.ps-form--quick-search button{
+    background-color: #df4141;
+    transition: all 0.3s ease-in
+}
+
+.ps-form--quick-search button:hover{
+    background-color: #000;
+}
+
+
+.header .header__extra > i, .ps-block--user-header .ps-block__right a, .ps-block--user-header .ps-block__left i{
+    color: #df4141;
+    transition: all 0.3s ease-in
+}
+
+.header .header__extra > i:hover, .ps-block--user-header .ps-block__right a:hover, .ps-block--user-header{
+    color: #000;
+}
+
+header.header--sticky .menu__toggle span, header.header--sticky .menu__toggle i{
+    color: #df4141;
+}
+
+.homecategories__slider .slick-slide > div{
+    margin: .5rem
+}
+
+.homecategories__nav_prev, .homecategories__nav_next{
+    background-color: #e5e5e5;
+    position: absolute;
+    top: 95px;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+}
+
+.homecategories__nav_prev:hover, .homecategories__nav_next:hover{
+    background-color: #df4141;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.homecategories__nav_prev{
+    left: -10px
+}
+
+.homecategories__nav_next{
+    right: -10px;
+}
+
+.ps-top-categories{
+    background-color: #df4141;
+}
+
+.ps-footer h4, .ps-footer p, .ps-footer h3, .widget_footer .widget-title, .ps-list--link li a{
+    color: #fff;
+}
+
+a.hov{
+    color: #E4811C;
+}
+
+.ps-list--link li a::before{
+    background-color: #E4811C; 
+}
+
+
+.form-load-disabled, .form-load-disabled:hover, .form-load-disabled:active{
+    background-color: #F29B9B !important;
+    color: #000 !important;
+    cursor: wait;
+}
+
+.form-load-disabled > .spinner-border{
+    margin-left: 20px;
+}
+
+.btn.pass_check_btn{
+    position: absolute;
+    top: 44%;
+    right: 15px;
+    font-size: 2rem;
+    z-index: 40;
+}
+
+.btn.pass_check_btn:focus{
+    box-shadow: none;
+}
+
+.password_check:hover{
+    cursor: pointer;
+    color: #df4141;
+}
+
+.display-text-group .read-more-button{
+    padding: 1rem;
+    background-color: #df4141;
+    color: #fff;
+    border-radius: 1rem;
+    margin: auto;
+    margin-top: 1rem;
+    max-width: 20rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.display-text-group .read-more-button{
+    cursor: pointer;
+}
+
+.virem--about--description--desktop{
+    display: none;
+}
+
+.whatsapp--checkout button{
+    font-size: 2rem;
+}
+
+.whatsapp--checkout svg{
+    margin-right: 1rem;
+}
+
+.mobile.ps-form__action{
+    position: absolute;
+    z-index: 20;
+    right: 70px;
+    top: 10px;
+}
+
+
+.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector{
+    height: 50px;
+}
+
+.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector:hover{
+    border-color: #df4141;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+    border-color: #df4141;
+}
+
+.ant-select-item-option-content{
+    margin-top: 13px;
+}
+
+.entry-content {
+    max-width: 1000px;
+}
+
+.ps-block--user-account{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.ps-block--user-account i{
+    color: #df4141
+}
+
+.ps-block--user-account i:hover{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.85)
+}
+
+.ps-product.dealsoftheday:hover .ps-product__content{
+    height: max-content;
+}
+
+.ps-collection img{
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,.15) !important;
+}
+
+#homepage-1 .ps-deal-of-day .ps-product .ps-product__price small{
+    display: block;
+}
+
+.parner_block{
+    width: 200px;
+}
+
+.ps-block--download-app{
+    display: none;
+}
+@media (min-width: 576px) { 
+
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .wpviremproducts p{
+    margin: 0 0 0 1rem;
+}
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .wpviremproducts a{
+        width: calc(16.6% - 1rem);
+    }
+    
+    
+    /* .wpviremproducts a p{
+        font-size: 1.5rem;
+    }
+    
+    .wpviremproducts a svg{
+        font-size: 4.5rem;
+    } */
+
+
+    #homepage-1 .ps-home-banner {
+        padding-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #homepage-1 .ps-deal-of-day {
+        padding-bottom: 80px;
+    }
+
+
+    .virem--about--description--desktop{
+        display: block !important;
+    }
+
+    .virem--about--description--mobile{
+        display: none !important;
+    }
+
+    #homepage-1 .ps-deal-of-day .ps-product .ps-product__price small{
+        display: inline;
+    }
+
+    .ps-block--download-app{
+        display: block !important;
+    }
+ }
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    div.shop.ps-container{
+        margin-top: 30px;
+    }
+
+ }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+
+ }
