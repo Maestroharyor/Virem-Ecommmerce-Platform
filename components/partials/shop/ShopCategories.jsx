@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { categories } from '../../../public/static/data/shopCategories';
+import { categories } from '../../../public/static/data/shopCategories.json';
 
 const ShopCategories = () => (
     <div className="ps-shop-categories">

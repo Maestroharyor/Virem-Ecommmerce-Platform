@@ -1,5 +1,5 @@
 import React from 'react';
-import { relatedPosts } from '../../../public/static/data/posts';
+import { relatedPosts } from '../../../public/static/data/posts.json';
 
 import PostGrid from '../../elements/post/PostGrid';
 
