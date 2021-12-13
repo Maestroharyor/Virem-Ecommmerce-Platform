@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import Router from 'next/router';
 import { connect } from 'react-redux';
 import { Slider, Checkbox } from 'antd';
@@ -88,8 +89,8 @@ class ShopWidget extends Component {
                     {categories && categories.length > 0 ? (
                         <ul className="ps-list--categories">
                             <li>
+                                <Link href="/shop" passHref>
                                 <a
-                                    href="/shop"
                                     onClick={e =>
                                         this.handleFilterProductsByCategory(
                                             e,
@@ -98,6 +99,7 @@ class ShopWidget extends Component {
                                     }>
                                     All
                                 </a>
+                                </Link>
                             </li>
                             {categories.map(category => (
                                 <li key={category.id}>

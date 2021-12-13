@@ -3,13 +3,14 @@ import { carouselFullwidth } from '../../../utilities/carousel-helpers';
 import WPProduct from '../../elements/products/WPProduct';
 import Slider from 'react-slick';
 
-const WPModuleProductItems = ({ products }) => {
+const WPModuleProductItemsHome = (props) => {
+    // console.log(props)
     return (
         <Slider
             {...carouselFullwidth}
-            infinite={products.length > 7 ? true : false}
+            infinite={props.products.length > 7 ? true : false}
             className="ps-carousel outside">
-            {products.map((product) => (
+            {props.products.map((product) => (
                 <div className="item" key={product.id}>
                     <WPProduct product={product} />
                 </div>
@@ -18,4 +19,4 @@ const WPModuleProductItems = ({ products }) => {
     );
 };
 
-export default WPModuleProductItems;
+export default WPModuleProductItemsHome;

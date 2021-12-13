@@ -7,34 +7,18 @@ import { carouselFullwidth } from '../../utilities/carousel-helpers';
 import WPProductDealOfDay from '../../wp-components/elements/products/WPProductDealOfDay';
 import CountDownSimple from '../../components/elements/CountDownSimple';
 
-const WPDealOfDay = () => {
+const WPDealOfDay = ({data}) => {
+    // console.log(data)
     const [productItems, setProductItems] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    async function getSectionProducts() {
-        const params = {
-            pages: 1,
-            per_page: 8,
-        };
-        const WPProducts = await WPProductRepository.getProducts(params);
-        if (WPProducts) {
-            setTimeout(function () {
-                setLoading(false);
-            }, 200);
-            setProductItems(WPProducts.items);
-        }
-    }
-
-    useEffect(() => {
-        getSectionProducts();
-    }, []);
 
     // Views
     let productItemsView;
 
-    if (!loading) {
-        if (productItems && productItems.length > 0) {
-            const slideItems = productItems.map((item) => (
+    if (data.items) {
+        if (data.items && data.items.length > 0) {
+            const slideItems = data.items.map((item) => (
                 <WPProductDealOfDay product={item} key={item.id} />
             ));
             productItemsView = (
@@ -64,7 +48,7 @@ const WPDealOfDay = () => {
                         </div>
                         <div className="ps-block__right">
                             <figure>
-                                <figcaption>End in:</figcaption>
+                                <figcaption>Ends in:</figcaption>
                                 <CountDownSimple
                                     timeTillDate="12 31 2021, 6:00 am"
                                     timeFormat="MM DD YYYY, h:mm a"

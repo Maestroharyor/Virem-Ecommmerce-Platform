@@ -1,7 +1,7 @@
 // import Link from 'next/link'
-import BreadCrumb from '../../components/elements/BreadCrumb';
-import WPLayout from '../../wp-components/layouts/WPLayout';
-import PrivacyPolicy from '../../components/partials/page/PrivacyPolicy'
+import BreadCrumb from '../components/elements/BreadCrumb';
+import WPLayout from '../wp-components/layouts/WPLayout';
+import PrivacyPolicy from '../components/partials/page/PrivacyPolicy'
 
 
 

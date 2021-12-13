@@ -1,10 +1,7 @@
 import React from 'react';
-import FooterWidgets from './modules/FooterWidgets';
-import FooterLinks from './modules/FooterLinks';
-import FooterCopyright from './modules/FooterCopyright';
 
-const FooterMarketPlace2 = () => (
-    <footer className="ps-footer ps-footer--3">
+const MarketPlaceSiteFeatures = () => (
+    <div className="ps-site-features">
         <div className="container">
             <div className="ps-block--site-features ps-block--site-features-2">
                 <div className="ps-block__item">
@@ -44,11 +41,8 @@ const FooterMarketPlace2 = () => (
                     </div>
                 </div>
             </div>
-            <FooterWidgets />
-            <FooterLinks />
-            <FooterCopyright />
         </div>
-    </footer>
+    </div>
 );
 
-export default FooterMarketPlace2;
+export default MarketPlaceSiteFeatures;

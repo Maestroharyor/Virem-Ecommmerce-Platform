@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Head from 'next/head';
 import { connect } from 'react-redux';
 import {loginSuccess} from '../../store/auth/action';
-import FooterFullwidth from '../../components/shared/footers/FooterFullwidth';
+import FooterFullwidth from '../../wp-components/shared/footers/FooterFullwidth';
 import SwicherDemo from '../../components/shared/switcher-demo/SwitcherDemo';
 import WPHeaderDefault from '../../wp-components/shared/headers/WPHeaderDefault';
 import WPHeaderMobile from '../../wp-components/shared/mobile/WPHeaderMobile';

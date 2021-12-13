@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import BreadCrumb from '../../components/elements/BreadCrumb';
-import FaqsContent from '../../components/partials/page/FaqsContent';
+import BreadCrumb from '../components/elements/BreadCrumb';
+import FaqsContent from '../components/partials/page/FaqsContent';
 // import Newletters from '../../components/partials/commons/Newletters';
-import WPLayout from '../../wp-components/layouts/WPLayout';
+import WPLayout from '../wp-components/layouts/WPLayout';
 
 const FaqsPage = () => {
     const breadCrumb = [

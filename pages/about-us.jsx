@@ -1,9 +1,9 @@
 import React from 'react';
-import BreadCrumb from '../../components/elements/BreadCrumb';
-import OurTeam from '../../components/partials/page/about-us/OurTeam';
+import BreadCrumb from '../components/elements/BreadCrumb';
+import OurTeam from '../components/partials/page/about-us/OurTeam';
 // import AboutAwards from '../../components/partials/page/about-us/AboutAwards';
-import AboutMain from '../../components/partials/page/about-us/AboutMain';
-import WPLayout from '../../wp-components/layouts/WPLayout';
+import AboutMain from '../components/partials/page/about-us/AboutMain';
+import WPLayout from '../wp-components/layouts/WPLayout';
 
 const AboutUsPage = () => {
     const breadCrumb = [

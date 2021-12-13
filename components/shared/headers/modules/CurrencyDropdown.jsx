@@ -28,17 +28,16 @@ class CurrencyDropdown extends Component {
         return (
             <div className="ps-dropdown">
                 {currency ? (
-                    <a href="/" onClick={e => e.preventDefault()}>
+                    <p onClick={e => e.preventDefault()}>
                         {currency.text}
-                    </a>
+                    </p>
                 ) : (
                     ''
                 )}
 
                 <ul className="ps-dropdown-menu">
-                    <li>
+                    {/* <li>
                         <a
-                            href="/"
                             onClick={e =>
                                 this.handleChangeCurrency(e, {
                                     symbol: '$',
@@ -50,7 +49,6 @@ class CurrencyDropdown extends Component {
                     </li>
                     <li>
                         <a
-                            href="/"
                             onClick={e =>
                                 this.handleChangeCurrency(e, {
                                     symbol: '€',
@@ -62,7 +60,6 @@ class CurrencyDropdown extends Component {
                     </li>
                     <li>
                         <a
-                            href="/"
                             onClick={e =>
                                 this.handleChangeCurrency(e, {
                                     symbol: '£',
@@ -71,7 +68,7 @@ class CurrencyDropdown extends Component {
                             }>
                             GBP
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         );

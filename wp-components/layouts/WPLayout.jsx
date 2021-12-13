@@ -6,9 +6,9 @@ import WPNavigationBottom from '../../wp-components/shared/mobile/WPNavigationBo
 import { connect } from 'react-redux';
 import {loginSuccess} from '../../store/auth/action';
 // import FooterDefault from '../../components/shared/footers/FooterDefault';
-import FooterFullwidth from '../../components/shared/footers/FooterFullwidth'
+import FooterFullwidth from '../../wp-components/shared/footers/FooterFullwidth'
 import Newsletters from '../../components/partials/commons/Newletters';
-import WPHeaderMarketPlace from '../../wp-components/shared/headers/WPHeaderMarketPlace';
+// import WPHeaderMarketPlace from '../../wp-components/shared/headers/WPHeaderMarketPlace';
 import WPHeaderDefault from '../../wp-components/shared/headers/WPHeaderDefault';
 import {cookieDecoder} from '../../wp-components/account/CookieDecode'
 import {notification } from 'antd';

@@ -189,7 +189,7 @@ class HeaderAutoPart extends Component {
                             {menuAutopart.map((menuItem) => (
                                 <li key={menuItem.text}>
                                     <Link href={menuItem.url}>
-                                        <a href="/shop">{menuItem.text}</a>
+                                        <a>{menuItem.text}</a>
                                     </Link>
                                 </li>
                             ))}

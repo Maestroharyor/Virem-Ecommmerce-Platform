@@ -1,9 +1,9 @@
 import React from 'react';
-import BreadCrumb from '../../components/elements/BreadCrumb';
-import ContactInfo from '../../components/partials/page/ContactInfo';
-import ContactForm from '../../components/partials/page/ContactForm';
-import ContactMap from '../../components/partials/page/ContactMap';
-import WPLayout from '../../wp-components/layouts/WPLayout';
+import BreadCrumb from '../components/elements/BreadCrumb';
+import ContactInfo from '../components/partials/page/ContactInfo';
+import ContactForm from '../components/partials/page/ContactForm';
+import ContactMap from '../components/partials/page/ContactMap';
+import WPLayout from '../wp-components/layouts/WPLayout';
 
 const ContactUsPage = () => {
     const breadCrumb = [
