@@ -47,4 +47,4 @@ const CheckoutPage = () => {
     );
 };
 
-export default connect(CheckoutPage);
+export default connect()(CheckoutPage);

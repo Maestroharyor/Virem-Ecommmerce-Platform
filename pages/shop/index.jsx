@@ -16,61 +16,81 @@ import WPProductRepository from '../../repositories/WP/WPProductRepository';
 import WPLayoutFullwidth from '../../wp-components/layouts/WPLayoutFullwidth';
 import WPShopCategories from '../../wp-components/shop/WPShopCategories';
 
-const WPShopPage = ({ query }) => {
+
+export const getServerSideProps = async (context) => {
+    // const ID = getURLSlugID(context.query.pid)
+    const [parentCategoriesReq1, parentCategoriesReq2] = await Promise.all ([
+        fetch(`https://virem.learnmur.com.ng/wp-json/wc/v3/products/categories?consumer_key=ck_c668c1163da91eb89e1259706dd1946c453fcfe6&consumer_secret=cs_bf89ac8ae81243d599f93324c4ad517990e6d02f&per_page=100`),
+        fetch(`https://virem.learnmur.com.ng/wp-json/wc/v3/products/categories?consumer_key=ck_c668c1163da91eb89e1259706dd1946c453fcfe6&consumer_secret=cs_bf89ac8ae81243d599f93324c4ad517990e6d02f&per_page=100&page=2`)
+
+    ]);
+    const [parentCategories1, parentCategories2] = await Promise.all([
+        parentCategoriesReq1.json(), parentCategoriesReq2.json()
+    ])
+    const allParentCategories = parentCategories1.concat(parentCategories2)
+    const parentCategories = allParentCategories.filter(categoryItem => categoryItem.parent === 0)
+    return {
+        props: {parentCategories}
+    }
+}
+
+const WPShopPage = (props) => {
     const dispatch = useDispatch();
-    const router = useRouter();
-    const [categoryName, setCategoryName] = useState(null);
-    const [products, setProducts] = useState([])
+    dispatch(WPGetProducts({page: 1, per_page: 18}))
+    // const dispatch = useDispatch();
+    // const router = useRouter();
+    // const [categoryName, setCategoryName] = useState(null);
+    // const [products, setProducts] = useState([])
 
-    async function getCategory(id) {
-        const category = await WPProductRepository.getCategoryByID(id);
-        if (category) {
-            setCategoryName(category.name);
-            return category;
-        } else {
-            return null;
-        }
-    }
+    // async function getCategory(id) {
+    //     const category = await WPProductRepository.getCategoryByID(id);
+    //     if (category) {
+    //         setCategoryName(category.name);
+    //         return category;
+    //     } else {
+    //         return null;
+    //     }
+    // }
 
-    async function getProductOnChangeURL(url) {
-        const nextPid = url.split('category=').pop();
-        if (nextPid !== '' && isNaN(parseInt(nextPid)) === false) {
-            const queries = {
-                page: 1,
-                per_page: 18,
-                category: nextPid,
-            };
-            dispatch(WPGetProducts(queries));
-            getCategory(nextPid);
-        } else {
-            const queries = {
-                page: 1,
-                per_page: 18,
-            };
-            dispatch(WPGetProducts(queries));
-        }
-    }
+    // async function getProductOnChangeURL(url) {
+    //     const nextPid = url.split('category=').pop();
+    //     if (nextPid !== '' && isNaN(parseInt(nextPid)) === false) {
+    //         const queries = {
+    //             page: 1,
+    //             per_page: 18,
+    //             category: nextPid,
+    //         };
+    //         dispatch(WPGetProducts(queries));
+    //         getCategory(nextPid);
+    //     } else {
+    //         const queries = {
+    //             page: 1,
+    //             per_page: 18,
+    //         };
+    //         dispatch(WPGetProducts(queries));
+    //     }
+    // }
 
-    useEffect(() => {
-        if (query) {
-            const queries = {
-                page: 1,
-                per_page: 18,
-            };
-            dispatch(WPGetProducts(queries));
+    // useEffect(() => {
+    //     if (query) {
+    //         const queries = {
+    //             page: 1,
+    //             per_page: 18,
+    //         };
+    //         dispatch(WPGetProducts(queries));
 
-            if (query.category) {
-                dispatch(getProductsByCategory(query.category));
-                getCategory(query.category);
-            }
-        }
+    //         if (query.category) {
+    //             dispatch(getProductsByCategory(query.category));
+    //             getCategory(query.category);
+    //         }
+    //     }
 
-        router.events.on('routeChangeStart', getProductOnChangeURL);
+    //     router.events.on('routeChangeStart', getProductOnChangeURL);
 
-        return () => {
-            router.events.off('routeChangeStart', getProductOnChangeURL);
-        };
-    }, [dispatch]);
+    //     return () => {
+    //         router.events.off('routeChangeStart', getProductOnChangeURL);
+    //     };
+    // }, [dispatch]);
 
     const breadCrumb = [
         {
@@ -78,28 +98,9 @@ const WPShopPage = ({ query }) => {
             url: '/',
         },
         {
-            text: categoryName ? (
-                <span
-                    dangerouslySetInnerHTML={{
-                        __html: `${categoryName}`,
-                    }}
-                />
-            ) : (
-                'All Products'
-            ),
+            text: "All Products"
         },
     ];
-
-    // useEffect(()=>{
-
-    //         axios.get('https://qsgloballimited.com/wp-json/wc/v3/products/categories?pages=1&per_page=99&consumer_key=ck_760cf18f43d39e7ba31935e728a0f3effd018d3c&consumer_secret=cs_741ea44d492487cf7b4f7af6c32a9452b73ccd25').then(response => {
-    //     console.log("Response: ",response)
-    //     setProducts(response)
-    // }).catch(error => {
-    //     console.log("Error: ", error)
-    // })
-    
-    // }, [])
 
 
     return (
@@ -113,10 +114,10 @@ const WPShopPage = ({ query }) => {
                     <div className="ps-layout--shop">
                         <div className="ps-layout__left">
                             <WPWidgetCategories
-                                activeID={query && query.category}
+                                parentCategories={props.parentCategories}
                             />
-                            <WPWidgetBrand />
-                            <WPWidgetFilterByPrices />
+                            {/* <WPWidgetBrand /> */}
+                            {/* <WPWidgetFilterByPrices /> */}
                         </div>
                         <div className="ps-layout__right">
                             <WPShopProducts />
@@ -130,8 +131,8 @@ const WPShopPage = ({ query }) => {
     );
 };
 
-WPShopPage.getInitialProps = async ({ query }) => {
-    return { query: query };
-};
+// WPShopPage.getInitialProps = async ({ query }) => {
+//     return { query: query };
+// };
 
 export default connect()(WPShopPage);

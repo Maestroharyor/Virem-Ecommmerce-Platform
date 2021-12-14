@@ -7,6 +7,7 @@ import {
     WPProductPriceView,
     WPProductThumbnailView,
 } from '../../../utilities/WPHelpers';
+import {createURLSlug} from '../../../functions/url';
 
 const WPProductHorizontal = ({ product }) => {
     const thumbnailImage = WPProductThumbnailView(product);
@@ -21,7 +22,7 @@ const WPProductHorizontal = ({ product }) => {
                 </Link>
             </div>
             <div className="ps-product__content">
-                <Link href="/product/[pid]" as={`/product/${product.id}`}>
+            <Link href={`/product/${createURLSlug(product.name, product.id)}`}>
                     <a className="ps-product__title">{product.name}</a>
                 </Link>
                 <div className="ps-product__rating">

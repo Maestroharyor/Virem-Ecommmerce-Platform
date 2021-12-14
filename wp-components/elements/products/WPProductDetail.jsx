@@ -34,7 +34,7 @@ const WPProductDetail = ({ product, variations }) => {
     }
 
     function init() {
-        if (variations) {
+        if (variations.length >= 1) {
             if (!selectedColor) {
                 setSelectedColor(
                     product.default_attributes.find(
@@ -64,7 +64,7 @@ const WPProductDetail = ({ product, variations }) => {
     let colorsView, sizesView;
 
     if (product) {
-        if (variations) {
+        if (variations.length >= 1) {
             const WPProductSizes = product.attributes.find(
                 (item) => item.name === 'size'
             );

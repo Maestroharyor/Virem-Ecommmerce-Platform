@@ -7,7 +7,7 @@ import MenuCategoriesDropdown from '../../../components/shared/menus/MenuCategor
 import CurrencyDropdown from '../../../components/shared/headers/modules/CurrencyDropdown';
 import LanguageSwicher from '../../../components/shared/headers/modules/LanguageSwicher';
 import menuData from '../../../public/static/data/menu';
-import Menu from '../../../components/elements/menu/Menu';
+import HeaderMenu from '../../../components/elements/menu/HeaderMenu';
 
 class WPNavigationDefault extends Component {
     constructor(props) {
@@ -31,21 +31,18 @@ class WPNavigationDefault extends Component {
                         <MenuCategoriesDropdown />
                     </div>
                     <div className="navigation__right">
-                        <Menu
-                            data={menuData.WPMenu}
-                            className="menu"
-                        />
+                        <HeaderMenu />
                         <ul className="navigation__extra">
                             <li>
                                 {/* <Link href="/vendors/become-a-vendor"> */}
                                     <a href="https://vendor.virem.com.ng" target="_blank">Become a Vendor</a>
                                 {/* </Link> */}
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href="/account/order-tracking">
                                     <a>Track your order</a>
                                 </Link>
-                            </li>
+                            </li> */}
                             {/* <li>
                                 <CurrencyDropdown />
                             </li> */}

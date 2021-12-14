@@ -23,17 +23,24 @@ import WPProductRepository from '../repositories/WP/WPProductRepository';
 export async function getStaticProps(context) {
     const page = 1;
     const per_page =  7;
-    const [dealsReq, womenReq, menReq, fashionReq, phoneReq, supplimentsReq] = await  Promise.all([
+    const [dealsReq, womenReq
+        // menReq, fashionReq, phoneReq, supplimentsReq
+    ] = await  Promise.all([
         WPProductRepository.getProducts({page, per_page: 12}),
         WPProductRepository.getProducts({page, per_page, category: 195}),
-        WPProductRepository.getProducts({page, per_page, category: 193}),
-        WPProductRepository.getProducts({page, per_page, category: 22}),
-        WPProductRepository.getProducts({page, per_page, category: 240}),
-        WPProductRepository.getProducts({page, per_page, category: 261}),
+        // WPProductRepository.getProducts({page, per_page, category: 193}),
+        // WPProductRepository.getProducts({page, per_page, category: 22}),
+        // WPProductRepository.getProducts({page, per_page, category: 240}),
+        // WPProductRepository.getProducts({page, per_page, category: 261}),
     ])
 
     return {
-      props: {dealsReq, womenReq, menReq, fashionReq, phoneReq, supplimentsReq}, // will be passed to the page component as props
+      props: {
+          dealsReq, 
+          womenReq, 
+        //   menReq, 
+        //   fashionReq, phoneReq, supplimentsReq
+        }, // will be passed to the page component as props
     }
   }
   
@@ -52,10 +59,10 @@ const Index = (props) => {
             <WPDealOfDay data={props.dealsReq} />
             <HomeAdsColumns />
             <WPProductListHome categoryID={195} title="Women's Fashion" data={props.womenReq.items} />
-            <WPProductListHome categoryID={193} title="Men's Fashion" data={props.menReq.items} />
+            {/* <WPProductListHome categoryID={193} title="Men's Fashion" data={props.menReq.items} />
             <WPProductListHome categoryID={22} title="Amazing Fashion Discounts" data={props.fashionReq.items} />
             <WPProductListHome categoryID={240} title="Best Phone + Gadget Deals" data={props.phoneReq.items} />
-            <WPProductListHome categoryID={261} title="Suppliments" data={props.supplimentsReq.items} />
+            <WPProductListHome categoryID={261} title="Suppliments" data={props.supplimentsReq.items} /> */}
             <DownLoadApp />
             {/* <WPNewArrivals /> */}
             {/* <WPViremAbout /> */}

@@ -14,6 +14,7 @@ import {
     WPProductThumbnailView,
 } from '../../../utilities/WPHelpers';
 import {notification } from 'antd';
+import {createURLSlug} from '../../../functions/url';
 
 
 
@@ -64,7 +65,7 @@ const WPProduct = ({ product }) => {
     return (
         <div className="ps-product mb-5 mb-0-lg">
             <div className="ps-product__thumbnail">
-                <Link href="/product/[pid]" as={`/product/${product.id}`}>
+            <Link href={`/product/${createURLSlug(product.name, product.id)}`}>
                     <a>
                         <LazyLoad>{thumbnailImage}</LazyLoad>
                     </a>
@@ -120,7 +121,7 @@ const WPProduct = ({ product }) => {
                     </a>
                 </Link> */}
                 <div className="ps-product__content">
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
+                    <Link href={`/product/${createURLSlug(product.name, product.id)}`}>
                         <a className="ps-product__title">{`${product.name.slice(0,25)}...`}</a>
                     </Link>
                     {/* <div className="ps-product__rating">
@@ -130,7 +131,7 @@ const WPProduct = ({ product }) => {
                     {priceView}
                 </div>
                 <div className="ps-product__content hover">
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
+                <Link href={`/product/${createURLSlug(product.name, product.id)}`}>
                         <a className="ps-product__title">{product.name}</a>
                     </Link>
                     {priceView}

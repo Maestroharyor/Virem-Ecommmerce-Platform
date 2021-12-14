@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { removeItem } from '../../../store/cart/action';
 import { connect } from 'react-redux';
 import { WPProductThumbnailView } from '../../../utilities/WPHelpers';
+import {createURLSlug} from '../../../functions/url';
 
 class WPProductOnCart extends Component {
     constructor() {
@@ -26,7 +27,7 @@ class WPProductOnCart extends Component {
         return (
             <div className="ps-product--cart-mobile">
                 <div className="ps-product__thumbnail">
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
+                <Link href={`/product/${createURLSlug(product.name, product.id)}`}>
                         <a>{thumbnailImage}</a>
                     </Link>
                 </div>
@@ -36,7 +37,7 @@ class WPProductOnCart extends Component {
                         onClick={(e) => this.removeCartItem()}>
                         <i className="icon-cross"></i>
                     </a>
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
+                    <Link href={`/product/${createURLSlug(product.name, product.id)}`}>
                         <a className="ps-product__title">{product.name}</a>
                     </Link>
                     <p>

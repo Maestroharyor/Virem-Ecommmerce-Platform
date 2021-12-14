@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Link from 'next/link';
+import {createURLSlug} from '../../../functions/url'
 
 const WPMenu = (props) => {
     // const [parentCatID, setParentCatID] = useState()
@@ -13,7 +14,7 @@ const WPMenu = (props) => {
             if(item.parent === 0 && item.name !== "Free delivery"){
                 return(
                     <li key={item.id} className="menu-item-has-children has-mega-menu">
-                        <Link href={`/shop/category/${item.id}`} passHref>
+                        <Link href={`/shop/category/${createURLSlug(item.name, item.id)}`} passHref>
                             <a>{item.name}</a>
                         </Link>
                         <div className="mega-menu">
@@ -22,7 +23,7 @@ const WPMenu = (props) => {
                                     {
                                         filteredSubCategory(item.id).slice(0,8).map(link => (
                                             <li key={item.id}>
-                                                <Link href={`/shop/category/${link.id}`} passHref>
+                                                <Link href={`/shop/category/${createURLSlug(link.name, link.id)}`} passHref>
                                                     <a>{link.name}</a>
                                                 </Link>
                                             </li>
@@ -37,7 +38,7 @@ const WPMenu = (props) => {
                                     {
                                         filteredSubCategory(item.id).slice(7,16).map(link => (
                                             <li key={item.id}>
-                                                <Link href={`/shop/category/${link.id}`} passHref>
+                                                <Link href={`/shop/category/${createURLSlug(link.name, link.id)}`} passHref>
                                                     <a>{link.name}</a>
                                                 </Link>
                                             </li>
@@ -55,7 +56,7 @@ const WPMenu = (props) => {
                                     {
                                         filteredSubCategory(item.id).slice(15,24).map(link => (
                                             <li key={item.id}>
-                                                <Link href={`/shop/category/${link.id}`} passHref>
+                                                <Link href={`/shop/category/${createURLSlug(link.name, link.id)}`} passHref>
                                                     <a>{link.name}</a>
                                                 </Link>
                                             </li>

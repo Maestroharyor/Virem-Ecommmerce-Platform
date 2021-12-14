@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Menu } from 'antd';
 import Link from 'next/link';
 // import categories from '../../../public/static/data/static-categories.json';
+import {createURLSlug} from '../../../functions/url'
 
 const { SubMenu } = Menu;
 
@@ -35,7 +36,7 @@ const PanelCategories = (props) => {
                 onOpenChange={onOpenChange}>
                 {props.categories.filter(cat => cat.parent == 0).map(category => (
                     <Menu.Item key={category.id}>
-                        <Link href={`/shop/category/${category.id}`}>
+                        <Link href={`/shop/category/${createURLSlug(category.name, category.id)}`}>
                             <a onClick={props.handleDrawerClose}>
                             {category.name}
                             </a>

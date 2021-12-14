@@ -12,76 +12,70 @@ import WPProductWidgets from '../../wp-components/product/WPProductWidgets';
 import WPLayoutProductDetail from '../../wp-components/layouts/WPLayoutProductDetail';
 import WPHeaderDefault from '../../wp-components/shared/headers/WPHeaderDefault';
 import BreadCrumbProduct from '../../components/elements/BreadCrumbProduct';
+import {getURLSlugID, createURLSlug} from '../../functions/url';
+
+
+
+export const getServerSideProps = async (context) => {
+    const ID = getURLSlugID(context.query.pid)
+    const [WPProduct, WPPRroductVariations] = await Promise.all ([
+        WPProductRepository.getProductByID(ID),
+        WPProductRepository.getProductVariantsByID(ID),    ]);
+    return {
+        props: {product: WPProduct, variations: WPPRroductVariations, ID}
+    }
+}
 
 const WPProductDetailPage = (props) => {
     console.log(props)
-    const router = useRouter();
-    const [product, setProduct] = useState(null);
+    // const router = useRouter();
+    // const [product, setProduct] = useState(null);
     const [productVariations, setProductVariations] = useState(null);
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(true)
     const [relatedProducts, setRelatedProducts] = useState(null);
+    const [relatedProducts2, setRelatedProducts2] = useState(null);
+
+    if(isNaN(props.ID)){
+        Router.push('/404')
+    }
     
 
-    async function getProduct(productID) {
-        const WPProduct = await WPProductRepository.getProductByID(productID);
+   
 
-        console.log({loading}, WPProduct)
-        if (WPProduct) {
-            if (WPProduct.related_ids) {
-                setRelatedProducts(WPProduct.related_ids);
-            }
-            setProduct(WPProduct);
-            if (WPProduct.variations.length > 0) {
-                const WPPRroductVariations = await WPProductRepository.getProductVariantsByID(
-                    productID
-                );
-                if (WPPRroductVariations) {
-                    setProductVariations(WPPRroductVariations);
-                }
-            }
-            setTimeout(
-                function () {
-                    setLoading(false);
-                }.bind(this),
-                250
-            );
-            // console.log({loading}, WPProduct)
-        } else {
-            await router.push('/page/page-404', '/404');
-        }
-        return WPProduct;
+    const getProductRelatedProducts = async () => {
+        const [relatedProducts, relatedProducts2] = await Promise.all([
+            WPProductRepository.getProducts({page: 1, per_page: 5, category: props.product.categories[0].id}),
+            WPProductRepository.getProducts({page: 2, per_page: 7, category: props.product.categories[0].id})
+        ])
+        if(relatedProducts != null) setRelatedProducts(relatedProducts.items.filter(product => product.id != props.ID))
+        if(relatedProducts2 != null) setRelatedProducts2(relatedProducts2.items.filter(product => product.id != props.ID))
+        // setRelatedProducts2(relatedProducts2.items.filter(product => product.id != props.ID))
+        console.log({relatedProducts})
+        console.log({relatedProducts2})
     }
 
-    async function getProductOnChangeURL(url) {
-        const nextPid = url.split('/').pop();
-        if (nextPid !== '' && isNaN(parseInt(nextPid)) === false) {
-            // setLoading(true);
-            await getProduct(nextPid);
-        }
-    }
+    useEffect(()=> {
+        getProductRelatedProducts();
+    }, [])
 
-    useEffect(() => {
-        const { pid } = props.query;
-        if (isNaN(pid)) {
-            Router.push('/page/page-404');
-        }
+    // async function getProductOnChangeURL(url) {
+    //     const nextPid = url.split('/').pop();
+    //     if (nextPid !== '' && isNaN(parseInt(nextPid)) === false) {
+    //         // setLoading(true);
+    //         await getProduct(nextPid);
+    //     }
+    // }
 
-        if (props.query) {
-            const collectionsParams = [
-                'customer_bought',
-                'shop-recommend-items',
-                'widget_same_brand',
-            ];
-            getProduct(pid);
-        }
+    // useEffect(() => {
+    //     const { pid } = props.query;
 
-        router.events.on('routeChangeStart', getProductOnChangeURL);
+    //     router.events.on('routeChangeStart', getProductOnChangeURL);
 
-        return () => {
-            router.events.off('routeChangeStart', getProductOnChangeURL);
-        };
-    }, []);
+    //     return () => {
+    //         router.events.off('routeChangeStart', getProductOnChangeURL);
+    //     };
+    // }, []);
 
     // View area
     let productView, headerView;
@@ -94,41 +88,37 @@ const WPProductDetailPage = (props) => {
 
     const breadCrumbProduct = [
         {
-            text: 'Home',
-            url: '/',
+            text: 'All Products',
+            url: '/shop',
         },
         {
-            text: product ? product.categories[0].name : 'loading...',
-            url: `${product ? `/shop/category/${product.categories[0].id}` : "/"}`
+            text: props.product ? props.product.categories[0].name : 'loading...',
+            url: `${props.product ? `/shop/category/${createURLSlug(props.product.categories[0].name, props.product.categories[0].id) }` : "/"}`
         },
         {
-            text: product ? product.name : 'loading...',
+            text: props.product ? props.product.name : 'loading...',
         },
     ]
-    if (loading || product === null) {
+    if (props.product === null) {
         headerView = <WPHeaderDefault />;
         productView = <SkeletonProductDetail />;
-        console.log({loading}, product)
-        console.log("Don't Have Product")
     } else {
-        headerView = <WPHeaderProduct product={product} />;
+        headerView = <WPHeaderProduct product={props.product} />;
         productView = (
             <>
-            {console.log(product)}
+            {/* {console.log(props.product)} */}
             <WPProductDetail
-                product={product}
-                variations={productVariations && productVariations}
+                product={props.product}
+                variations={props.variations && props.variations}
             />
             </>
         );
-        console.log({loading}, product)
-        console.log("Have Product")
     }
 
     return (
-        <WPLayoutProductDetail title={product ? product.name : 'Loading...'}>
+        <WPLayoutProductDetail title={props.product ? props.product.name : 'Loading...'}>
             {headerView}
-            <BreadCrumbProduct breacrumb={product ? breadCrumbProduct : breadCrumb} layout="fullwidth" />
+            <BreadCrumbProduct breacrumb={props.product ? breadCrumbProduct : breadCrumb} layout="fullwidth" />
             <div className="ps-page--product">
                 <div className="ps-container">
                     <div className="ps-page__container">
@@ -143,15 +133,11 @@ const WPProductDetailPage = (props) => {
                             </WPProductWidgets>
                         </div>
                     </div>
-                    <WPRelatedProducts products={relatedProducts} />
+                    <WPRelatedProducts products={relatedProducts2} />
                 </div>
             </div>
         </WPLayoutProductDetail>
     );
-};
-
-WPProductDetailPage.getInitialProps = async ({ query }) => {
-    return { query: query };
 };
 
 export default connect()(WPProductDetailPage);

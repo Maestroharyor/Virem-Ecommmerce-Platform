@@ -359,7 +359,7 @@ const WPFormCheckout = (props) => {
 
                     
                 };
-                initializePayment(onPaymentSuccess, onClose)
+                // initializePayment(onPaymentSuccess, onClose)
 
             } else if(selectedGateway.id === 'cod'){
                 console.log("Pay On Del: ", checkoutData)

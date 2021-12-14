@@ -16,7 +16,7 @@ const BreadCrumbProduct = ({ breacrumb, layout }) => {
                             return (
                                 <li key={item.text}>
                                     {/* <Link href={item.url}> */}
-                                        <a href={item.url}>{item.text}</a>
+                                        <Link href={item.url}><a>{item.text}</a></Link>
                                     {/* </Link> */}
                                 </li>
                             );

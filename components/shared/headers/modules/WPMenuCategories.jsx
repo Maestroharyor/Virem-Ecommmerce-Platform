@@ -51,7 +51,7 @@ const WPMenuCategories = () => {
            fetchData() 
         }
         
-    })
+    }, [categories])
 
     // categories.map(cat => {
     //     console.log(cat, cat.id)
