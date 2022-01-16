@@ -13,11 +13,14 @@ function ViremChat() {
 
   useEffect(() => {
     
-    new TawkTo('61e3942bb84f7301d32b3c16', '1fpgflmc5')
+    let tawk = new TawkTo('61e3942bb84f7301d32b3c16', '1fpgflmc5')
     // window.Tawk_API.hideWidget()
-    if(window.Tawk_API){
+    tawk.hideWidget()
+
+
+    setTimeout(()=> {
         window.Tawk_API.hideWidget()
-    }
+    }, 500)
 
     
 
