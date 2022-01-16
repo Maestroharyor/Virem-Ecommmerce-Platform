@@ -1,0 +1,132 @@
+
+
+.floating_button{
+    background-image: linear-gradient(to bottom, #a855f7, #ec4899);
+    color: #fff;
+    font-size: 3rem;
+    position: fixed;
+    left: 20px;
+    bottom: 79px;
+    z-index: 500;
+    /* padding: 20px; */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border: 0;
+    transition: all 0.3s ease-in;
+}
+
+
+.floating_button:hover{
+    background-image: linear-gradient(to right, #a855f7, #ec4899);
+    transform: scale(1.1);
+}
+
+.floating_button_opened{
+    transform: rotate(180deg);
+}
+/* 
+.modal_opened{
+    transform: scale(0);
+} */
+
+.help_text{
+    display: none;
+}
+
+.help_text p{
+    margin: 0px;
+}
+
+.chats{
+    position: fixed;
+    bottom: 120px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 500;
+}
+
+.chats button{
+    font-size: 3rem;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 0;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.chats button:hover{
+    transform: scale(1.1);
+}
+
+.whatsapp_chat_button{
+    background-color: #00C962;
+    padding-bottom: 8px;
+}
+
+.whatsapp_chat_button:hover{
+    background-color: #01a751;
+}
+
+.live_chat_button{
+    background-color: #DF4141;
+}
+
+.live_chat_button:hover{
+    background-color: #af3030;
+}
+
+
+
+
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .help_text{
+        background-color: #fff;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        position: fixed;
+        left: 70px;
+        bottom: 95px;
+        z-index: 400;
+        border-radius: 10px;
+        padding: 5px 15px 5px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .floating_button{
+        bottom: 39px;
+    }
+    .help_text{
+        bottom: 55px;
+    }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}
+

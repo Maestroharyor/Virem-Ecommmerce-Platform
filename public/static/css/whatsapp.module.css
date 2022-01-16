@@ -64,6 +64,27 @@
     box-shadow: none;
 }
 
+.close_button{
+    position: absolute;
+    background-color: #DF4141;
+    color: #fff;
+    border: 0;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 20px;
+    top: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.close_button:hover{
+    background-color: #000;
+    transform: rotate(180deg);
+}
+
 
 @media (min-width: 576px) { 
 

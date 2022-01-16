@@ -12,7 +12,7 @@ import Newsletters from '../../components/partials/commons/Newletters';
 import WPHeaderDefault from '../../wp-components/shared/headers/WPHeaderDefault';
 import {cookieDecoder} from '../../wp-components/account/CookieDecode'
 import {notification } from 'antd';
-import WhatsappChat from '../../wp-components/shared/WhatsappChat'
+import ViremChat from '../../wp-components/shared/chat/ViremChat';
 
 const welcomeSuccess = type => {
     notification[type]({
@@ -61,7 +61,7 @@ const WPLayout = (props) => {
             {props.children}
             <Newsletters layout="container" />
             <FooterFullwidth />
-            <WhatsappChat />
+            <ViremChat />
         </div>
     );
 };
