@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Newletters from '../../components/partials/commons/Newletters';
 // import FooterDefault from '../../components/shared/footers/FooterDefault';
 import FooterFullwidth from '../../wp-components/shared/footers/FooterFullwidth'
-import WhatsappChat from '../../wp-components/shared/WhatsappChat'
+import ViremChat from '../../wp-components/shared/chat/ViremChat';
 import WPHeaderMobile from '../../wp-components/shared/mobile/WPHeaderMobile';
 import WPNavigationBottom from '../../wp-components/shared/mobile/WPNavigationBottom';
 import WPHeaderDefault from '../../wp-components/shared/headers/WPHeaderDefault';
@@ -27,7 +27,7 @@ const WPLayoutProductDetail = ({ children, title }) => {
             <Newletters />
             {/* <FooterDefault /> */}
             <FooterFullwidth />
-            <WhatsappChat />
+            <ViremChat />
         </div>
     );
 };

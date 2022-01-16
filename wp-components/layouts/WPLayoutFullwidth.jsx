@@ -5,6 +5,7 @@ import WPHeaderDefault from '../../wp-components/shared/headers/WPHeaderDefault'
 import WPHeaderMobile from '../../wp-components/shared/mobile/WPHeaderMobile';
 import WPNavigationBottom from '../../wp-components/shared/mobile/WPNavigationBottom';
 import Newsletters from '../../components/partials/commons/Newletters';
+import ViremChat from '../../wp-components/shared/chat/ViremChat';
 
 const WPLayoutFullwidth = ({ children, title }) => {
     let titleView;
