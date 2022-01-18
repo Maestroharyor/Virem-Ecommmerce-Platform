@@ -10,7 +10,7 @@ function WPShopLinks() {
     },
     {
       title: "Category",
-      link: "/category",
+      link: "/shop-by-category",
       icon: <FaShoppingCart />,
     },
   ];

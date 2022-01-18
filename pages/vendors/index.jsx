@@ -10,12 +10,12 @@ const VendorPage = () => {
             url: '/',
         },
         {
-            text: 'Vendors',
+            text: 'Shop by Vendors',
         },
     ];
 
     return (
-        <WPLayout title="Vendors">
+        <WPLayout title="Shop by Vendors">
             <div className="ps-page--single ps-page--vendor">
                 <BreadCrumb breacrumb={breadCrumb} />
                 <WPStores />

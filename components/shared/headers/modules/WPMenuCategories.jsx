@@ -33,12 +33,13 @@ const WPMenuCategories = () => {
         //     console.log(err)
         // })
 
-        let req1 = await fetch(`https://virem.learnmur.com.ng/wp-json/wc/v3/products/categories?consumer_key=ck_c668c1163da91eb89e1259706dd1946c453fcfe6&consumer_secret=cs_bf89ac8ae81243d599f93324c4ad517990e6d02f&per_page=100`)
+        let [req1, req2] = await Promise.all([
+            fetch(`https://virem.learnmur.com.ng/wp-json/wc/v3/products/categories?consumer_key=ck_c668c1163da91eb89e1259706dd1946c453fcfe6&consumer_secret=cs_bf89ac8ae81243d599f93324c4ad517990e6d02f&per_page=100`), await fetch(`https://virem.learnmur.com.ng/wp-json/wc/v3/products/categories?consumer_key=ck_c668c1163da91eb89e1259706dd1946c453fcfe6&consumer_secret=cs_bf89ac8ae81243d599f93324c4ad517990e6d02f&per_page=100&page=2`)
+        ])
 
-        let req2 = await fetch(`https://virem.learnmur.com.ng/wp-json/wc/v3/products/categories?consumer_key=ck_c668c1163da91eb89e1259706dd1946c453fcfe6&consumer_secret=cs_bf89ac8ae81243d599f93324c4ad517990e6d02f&per_page=100&page=2`)
-
-        let catreq1 = await req1.json()
-        let catreq2 = await req2.json()
+        let [catreq1, catreq2] = await Promise.all([
+            req1.json(),req2.json()
+        ])
         // console.log({catreq1}, {catreq2})
         const cat = catreq1.concat(catreq2)
         // console.log({cat})
