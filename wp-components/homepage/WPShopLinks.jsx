@@ -15,9 +15,10 @@ function WPShopLinks() {
     },
   ];
   return (
-    <div className="links__container mx-auto">
+    <div className="links__container__main mx-auto">
         <h3>Shop By</h3>
-      {links.map((link) => (
+        <div className="links__container">
+            {links.map((link) => (
         <Link  key={link.title} href={link.link}>
           <a className="link">
             <div className="icon">{link.icon}</div>
@@ -29,6 +30,8 @@ function WPShopLinks() {
           </a>
         </Link>
       ))}
+        </div>
+      
     </div>
   );
 }
