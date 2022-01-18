@@ -18,7 +18,7 @@ const WPModuleDefaultDescription = ({product})=>  {
         }
     }
     else {
-        descView = <p><i>This product hasn't description.</i></p>
+        descView = <p><i>{"This product hasn't description."}</i></p>
     }
     return (
         <div>
@@ -33,11 +33,8 @@ const WPModuleDefaultDescription = ({product})=>  {
                     <TabPane tab="Vendor" key="3">
                         <PartialVendor />
                     </TabPane>
-                    <TabPane tab="Reviews (1)" key="4">
+                    <TabPane tab="Reviews" key="4">
                         <PartialReview />
-                    </TabPane>
-                    <TabPane tab="Questions and Answers" key="5">
-                        Content of Tab Pane 3
                     </TabPane>
                     <TabPane tab="More Offers" key="6">
                         <PartialOffer />

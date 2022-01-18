@@ -14,7 +14,8 @@ import WPDealOfDay from '../wp-components/homepage/WPDealOfDay';
 import WPProductListHome from '../wp-components/homepage/WPProductListHome';
 import WPViremProducts from '../wp-components/homepage/WPViremProducts';
 import WPViremAbout from '../wp-components/homepage/WPViremAbout';
-// import WPViremPartners from '../../wp-components/homepage/WPViremPartners';
+import WPShopLinks from '../wp-components/homepage/WPShopLinks';
+// import WPViremPartners from '../wp-components/homepage/WPViremPartners';
 // import { getBannersBySlugs, getPromotionsBySlugs } from '../../store/media/action';
 import WPProductRepository from '../repositories/WP/WPProductRepository';
 
@@ -47,7 +48,7 @@ export async function getStaticProps(context) {
 
 
 const Index = (props) => {
-    console.log("Index Props", props)
+    // console.log("Index Props", props)
 
     return (
         <>
@@ -57,6 +58,7 @@ const Index = (props) => {
             <HomeDefaultTopCategories />
             <HomeAds />
             <WPDealOfDay data={props.dealsReq} />
+            <WPShopLinks />
             <HomeAdsColumns />
             <WPProductListHome categoryID={195} title="Women's Fashion" data={props.womenReq.items} />
             {/* <WPProductListHome categoryID={193} title="Men's Fashion" data={props.menReq.items} />

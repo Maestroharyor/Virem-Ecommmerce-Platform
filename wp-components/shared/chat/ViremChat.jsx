@@ -15,16 +15,21 @@ function ViremChat() {
     
     let tawk = new TawkTo('61e3942bb84f7301d32b3c16', '1fpgflmc5')
     // window.Tawk_API.hideWidget()
-    tawk.hideWidget()
-
-
-    setTimeout(()=> {
-        window.Tawk_API.hideWidget()
-    }, 500)
-
-    
-
+    window.Tawk_API.onLoad = function(){
+      //place your code here
+      window.Tawk_API.hideWidget()
+  };
 }, [])
+
+// useEffect(()=> {
+//   setTimeout(()=> {
+//     // tawk.hideWidget()
+//     if(window.Tawk_API){
+//       window.Tawk_API.hideWidget()
+//     }
+      
+//   }, 2000)
+// }, [])
   return (
     <div className="position-relative">
       <button

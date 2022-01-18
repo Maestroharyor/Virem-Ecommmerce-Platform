@@ -26,6 +26,7 @@ const WPLayoutFullwidth = ({ children, title }) => {
             {children}
             <Newsletters />
             <FooterFullwidth />
+            <ViremChat />
             {/*<SubscribePopup active={subscribe} />*/}
         </div>
     );

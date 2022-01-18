@@ -44,7 +44,7 @@
 
 .chats{
     position: fixed;
-    bottom: 120px;
+    bottom: 170px;
     left: 20px;
     display: flex;
     flex-direction: column;
@@ -122,6 +122,10 @@
     }
     .help_text{
         bottom: 55px;
+    }
+
+    .chats{
+        bottom: 120px;
     }
 }
 

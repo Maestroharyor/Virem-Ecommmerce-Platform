@@ -255,6 +255,41 @@ a.hov{
     display: none;
 }
 
+.links__container {
+    max-width: 800px;
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+  }
+
+  .links__container  .link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+  }
+
+
+  .links__container  .link p{
+      font-size: 2rem;
+      padding: 10px 80px;
+      margin: 0px;
+  }
+  .links__container  .link .desc{
+      background-color: #f4f5f6;
+  }
+
+  .links__container  .link .icon{
+      font-size: 7rem;
+      text-align: center;
+      padding: 10px 40px;
+  }
+
+
+
 /* #qa73g011gvjg1642305336328{
 
 } */
