@@ -24,11 +24,11 @@ import WPProductRepository from '../repositories/WP/WPProductRepository';
 export async function getStaticProps(context) {
     const page = 1;
     const per_page =  7;
-    const [dealsReq, womenReq
+    const [dealsReq, genReq
         // menReq, fashionReq, phoneReq, supplimentsReq
     ] = await  Promise.all([
         WPProductRepository.getProducts({page, per_page: 12}),
-        WPProductRepository.getProducts({page, per_page, category: 195}),
+        WPProductRepository.getProducts({page: 2, per_page}),
         // WPProductRepository.getProducts({page, per_page, category: 193}),
         // WPProductRepository.getProducts({page, per_page, category: 22}),
         // WPProductRepository.getProducts({page, per_page, category: 240}),
@@ -38,10 +38,11 @@ export async function getStaticProps(context) {
     return {
       props: {
           dealsReq, 
-          womenReq, 
+          genReq, 
         //   menReq, 
         //   fashionReq, phoneReq, supplimentsReq
         }, // will be passed to the page component as props
+        revalidate: 10,
     }
   }
   
@@ -60,7 +61,9 @@ const Index = (props) => {
             <WPDealOfDay data={props.dealsReq} />
             <WPShopLinks />
             <HomeAdsColumns />
-            <WPProductListHome categoryID={195} title="Women's Fashion" data={props.womenReq.items} />
+            <WPProductListHome 
+            // categoryID={195}
+             title="Latest Products" data={props.genReq.items} />
             {/* <WPProductListHome categoryID={193} title="Men's Fashion" data={props.menReq.items} />
             <WPProductListHome categoryID={22} title="Amazing Fashion Discounts" data={props.fashionReq.items} />
             <WPProductListHome categoryID={240} title="Best Phone + Gadget Deals" data={props.phoneReq.items} />

@@ -1,14 +1,22 @@
 import React from 'react';
+import Link from 'next/link';
 
-const PartialVendor = () => (
+
+const PartialVendor = ({store}) => (
     <section>
-        <h4>GoPro</h4>
+        {/* <h4>{store.}</h4> */}
+        <Link href={`/store/${store.id}`}>
+            <a className="ml-2">
+                <h4> {store.shop_name}</h4>
+            </a>
+        </Link>
         <p>
-            Digiworld US, New York’s no.1 online retailer was established in May 2012 with the aim
-            and vision to become the one-stop shop for retail in New York with implementation of
-            best practices both online
+            {store.address.street_1}
         </p>
-        <a href="#">More Products from Gopro</a>
+        <Link href={`/store/${store.id}`}>
+            <a className="btn btn-primary btn-lg" style={{color: "#fff"}}>See more Products from {store.shop_name}</a>
+        </Link>
+        
     </section>
 );
 

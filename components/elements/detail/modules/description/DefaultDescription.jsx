@@ -9,21 +9,17 @@ import PartialVendor from './PartialVendor';
 import PartialReview from './PartialReview';
 import PartialOffer from './PartialOffer';
 
-class DefaultDescription extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
+const DefaultDescription = (product) => {
         return (
             <div>
                 <div className="ps-product__content ps-tab-root">
                     <Tabs defaultActiveKey="1">
                         <TabPane tab="Description" key="1">
-                            <PartialDescription />
+                            <PartialDescription description={product.description} />
                         </TabPane>
-                        <TabPane tab="Specification" key="2">
+                        {/* <TabPane tab="Specification" key="2">
                             <PartialSpecification />
-                        </TabPane>
+                        </TabPane> */}
                         <TabPane tab="Reviews" key="4">
                             <PartialReview />
                         </TabPane>
@@ -34,7 +30,6 @@ class DefaultDescription extends Component {
                 </div>
             </div>
         );
-    }
 }
 
 export default DefaultDescription;

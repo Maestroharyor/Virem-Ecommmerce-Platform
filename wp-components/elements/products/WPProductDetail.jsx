@@ -104,7 +104,9 @@ const WPProductDetail = ({ product, variations }) => {
                         className={`ps-variant ps-variant--size ${
                             selectedSize === item.toLowerCase() && 'active'
                         }`}
-                        onClick={(e) => handleChangeSize(item)}>
+                        onClick={(e) => handleChangeSize(item)}
+                        key={item}
+                        >
                         <span className="ps-variant__size text-uppercase">
                             {item}
                         </span>
@@ -133,7 +135,8 @@ const WPProductDetail = ({ product, variations }) => {
                     <WPModuleProductDetailThumbnail product={product} />
                     <WPModuleProductDetailInformation product={product} />
                 </div>
-                <WPModuleDefaultDescription />
+                <WPModuleDefaultDescription product={product}  />
+                {/* <DefaultDescription product={product} /> */}
             </div>
         );
     } else {
@@ -151,7 +154,8 @@ const WPProductDetail = ({ product, variations }) => {
                         {sizesView}
                     </WPModuleProductDetailInformation>
                 </div>
-                <DefaultDescription />
+                <WPModuleDefaultDescription product={product}  />
+                {/* <DefaultDescription product={product} /> */}
             </div>
         );
     }

@@ -67,7 +67,7 @@ const HomeDefaultTopCategories = () => {
              <Slider {...settings} className='homecategories__slider position-relative'>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/236">
+                        <Link href={`/shop/category/Foods-1018`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/9.jpg" alt="Shop on Virem" />
@@ -76,7 +76,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/567">
+                        <Link href={`/shop/category/Electronics-567`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/1.jpg" alt="Shop on Virem" />
@@ -85,7 +85,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/35">
+                        <Link href={`/shop/category/Clothing-35`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/2.jpg" alt="Shop on Virem" />
@@ -94,7 +94,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/740">
+                        <Link href={`/shop/category/Computers-981`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/3.jpg" alt="Shop on Virem" />
@@ -103,7 +103,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/666">
+                        <Link href={`/shop/category/Home-and-Kitchen-666`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/4.jpg" alt="Shop on Virem" />
@@ -112,7 +112,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/24">
+                        <Link href={`/shop/category/Health-&amp;-Beauty-25`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/5.jpg" alt="Shop on Virem" />
@@ -121,7 +121,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/22">
+                        <Link href={`/shop/category/Men-Fashion-921`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/6.jpg" alt="Shop on Virem" />
@@ -130,7 +130,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/379">
+                        <Link href={`/shop/category/Computing-1036`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/7.jpg" alt="Shop on Virem" />
@@ -139,7 +139,7 @@ const HomeDefaultTopCategories = () => {
                 </div>
                 <div className="">
                     <div className="ps-block--category bg-white">
-                        <Link href="/shop/category/240">
+                        <Link href={`/shop/category/Mobile-Phones-918`}>
                             <a className="ps-block__overlay"></a>
                         </Link>
                         <img src="/static/img/categories/8.jpg" alt="Shop on Virem" />
