@@ -12,7 +12,7 @@ const WPModuleDefaultDescription = ({product})=>  {
 
     const [reviews, setReviews] = useState([]);
     useEffect(async ()=> {
-        WPRepository.get(`${WPDomain}/wp-json/wc/v3/products/reviews/${product.id}?${serializeQuery(
+        WPRepository.get(`${WPDomain}/wp-json/wc/v3/products/reviews?${serializeQuery(
             {consumer_key: ck_username,
             consumer_secret: cs_password}
         )}`, {headers: {
@@ -20,13 +20,14 @@ const WPModuleDefaultDescription = ({product})=>  {
             'Accept': '*',
         }})
         .then(res=>{
-            console.log(res)
+            console.log(res.data)
             setReviews(res.data)
         })
         .catch(err => {
             console.log(err)
         })
     }, [])
+
     let descView;
     if (product && product.description.length > 0) {
         if (product.description) {

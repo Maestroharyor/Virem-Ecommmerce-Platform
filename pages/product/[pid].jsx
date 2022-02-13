@@ -27,7 +27,7 @@ export const getServerSideProps = async (context) => {
 }
 
 const WPProductDetailPage = (props) => {
-    console.log(props)
+    // console.log(props)
     // const router = useRouter();
     // const [product, setProduct] = useState(null);
     const [productVariations, setProductVariations] = useState(null);
@@ -51,8 +51,8 @@ const WPProductDetailPage = (props) => {
         if(relatedProducts != null) setRelatedProducts(relatedProducts.items.filter(product => product.id != props.ID))
         if(relatedProducts2 != null) setRelatedProducts2(relatedProducts2.items.filter(product => product.id != props.ID))
         // setRelatedProducts2(relatedProducts2.items.filter(product => product.id != props.ID))
-        console.log({relatedProducts})
-        console.log({relatedProducts2})
+        // console.log({relatedProducts})
+        // console.log({relatedProducts2})
     }
 
     useEffect(()=> {

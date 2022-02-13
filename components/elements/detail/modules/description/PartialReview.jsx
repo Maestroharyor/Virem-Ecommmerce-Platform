@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import {useRouter} from 'next/router';
 import { connect, useDispatch } from "react-redux";
-import { Rate, Avatar } from "antd";
+import { Rate, Avatar, notification } from "antd";
+import axios from "axios";
 import Rating from "../../../Rating";
 import {
   WPRepository,
@@ -11,7 +13,22 @@ import {
 } from "../../../../../repositories/WP/WPRepository";
 import { serializeQuery } from "../../../../../repositories/Repository";
 
+
+const reviewSuccessful = type => {
+    notification[type]({
+        message: 'Review Added',
+        // description: 'You have logged in successful!',
+    });
+};
+const reviewFailed = (type, description) => {
+    notification[type]({
+        message: 'Unable to Add Review',
+        description,
+    });
+};
+
 const PartialReview = ({ id, auth, reviews, setReviews }) => {
+  const router = useRouter()
   const ratingTotal = reviews
     .map((review) => review.rating)
     .reduce((a, b) => a + b, 0);
@@ -24,6 +41,10 @@ const PartialReview = ({ id, auth, reviews, setReviews }) => {
   const [reviewComment, setReviewComment] = useState("");
   const [reviewRating, setReviewRating] = useState(1);
   const [loading, setLoading] = useState(false);
+
+  const refeshReviews = () => {
+
+  }
 
   const handleReview = async (e) => {
     e.preventDefault();
@@ -39,28 +60,36 @@ const PartialReview = ({ id, auth, reviews, setReviews }) => {
     console.log(data);
 
     setLoading(true);
-    fetch(
-      `${WPDomain}/wp-json/wc/v3/products/reviews?${serializeQuery({
-        consumer_key: ck_username,
-        consumer_secret: cs_password,
-      })}`,
-      {
-        method: "POST",
-        body: data,
-        headers: {
-          "access-control-allow-origin": "*",
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    WPRepository
+      .post(
+        `${WPDomain}/wp-json/wc/v3/products/reviews?${serializeQuery({
+          consumer_key: ck_username,
+          consumer_secret: cs_password,
+        })}`,
+        data,
+        {
+          headers: {
+            "Accept": "*/*",
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         console.log(res);
         // setReviews(res.data);
         setLoading(false);
+        if(res.status == 201){
+            reviewSuccessful('success')
+            router.reload()
+            
+        }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log({err});
+        // console.log();
         setLoading(false);
+        reviewFailed('warning', err.response.data.message)
       });
   };
   return (
@@ -119,9 +148,9 @@ const PartialReview = ({ id, auth, reviews, setReviews }) => {
             </div> */}
           </div>
         </div>
-        <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 reviews-list py-3">
+        <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 py-3">
           {reviews.length > 0 && (
-            <div>
+            <div className="reviews-list mb-5">
               {reviews.map((review) => (
                 <div key={review.id} className="rounded px-4 py-3 border">
                   <div className="d-flex justify-content-between">
