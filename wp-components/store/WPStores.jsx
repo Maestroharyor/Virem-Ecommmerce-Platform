@@ -1,81 +1,97 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
+import WPVendorRepository from "../../repositories/WP/WPVendorRepository";
+import WPStore from "../../wp-components/elements/stores/WPStore";
+import { generateTempArray } from "../../utilities/common-helpers";
+import SkeletonVendor from "../../components/elements/skeletons/SkeletonVendor";
 
-import WPVendorRepository from '../../repositories/WP/WPVendorRepository';
-import WPStore from '../../wp-components/elements/stores/WPStore';
-import { generateTempArray } from '../../utilities/common-helpers';
-import SkeletonVendor from '../../components/elements/skeletons/SkeletonVendor';
+const WPStores = ({ WPStoreData }) => {
+  const [loading, setLoading] = useState(false);
+  const [storeItems, setStoreItems] = useState(WPStoreData);
 
-const WPStores = () => {
-    const [loading, setLoading] = useState(true);
-    const [storeItems, setStoreItems] = useState(null);
+  console.log(storeItems);
 
-    async function getStores() {
-        const params = {
-            pages: 1,
-            per_page: 8,
-        };
-        const WPStores = await WPVendorRepository.getStores(params);
-        if (WPStores) {
-            setTimeout(function () {
-                setLoading(false);
-            }, 200);
-            setStoreItems(WPStores.items);
-            // console.log(WPStores.items)
-        }
-    }
+  const [hasMore, setHasMore] = useState(true);
+  const [currentPage, setCurrentPage] = useState(2);
 
-    useEffect(() => {
-        getStores();
-    }, []);
-
-    // Views
-    let storeItemsView;
-    if (!loading) {
-        if (storeItems) {
-            storeItemsView = storeItems.map((item) => (
-                <div
-                    className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 "
-                    key={item.id}>
-                    <WPStore store={item} />
-                </div>
-            ));
-        } else {
-            storeItemsView = <p>No store found.</p>;
-        }
-    } else {
-        storeItemsView = generateTempArray(3).map((item) => (
-            <div className="col-md-4" key={item}>
-                <SkeletonVendor key={item} />
-            </div>
-        ));
-    }
-
-    return (
-        <section className="ps-store-list">
-            <div className="container">
-                <div className="ps-section__header">
-                    <h3>Store list</h3>
-                </div>
-                <div className="ps-section__content">
-                    <div className="ps-section__search row">
-                        <div className="col-md-4">
-                            <div className="form-group">
-                                <button>
-                                    <i className="icon-magnifier"></i>
-                                </button>
-                                <input
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Search vendor..."
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">{storeItemsView}</div>
-                </div>
-            </div>
-        </section>
+  const getMoreStore = async () => {
+    console.log("Srcolled");
+    const newStores = await axios.get(
+      `https://virem.learnmur.com.ng/wp-json/dokan/v1/stores?page=${currentPage}&per_page=100`
     );
+
+    console.log({ newStores });
+    setStoreItems((store) => [...store, ...newStores.data]);
+    setCurrentPage(currentPage + 1);
+    if (newStores.data.length === 0) {
+      setHasMore(false);
+    }
+    // setLoading(false);
+  };
+
+  return (
+    <section className="ps-store-list">
+      <div className="container">
+        <div className="ps-section__header">
+          <h3>Store list</h3>
+        </div>
+        <div className="ps-section__content">
+          <div className="ps-section__search row">
+            <div className="col-md-4">
+              <div className="form-group">
+                <button>
+                  <i className="icon-magnifier"></i>
+                </button>
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search vendor..."
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            {storeItems.length == 0 && <p>No store found.</p>}
+          </div>
+          {storeItems.length > 0 && (
+            <>
+              <InfiniteScroll
+                dataLength={storeItems.length}
+                next={getMoreStore}
+                hasMore={hasMore}
+                scrollThreshold={"50%"}
+                className="row"
+                loader={
+                  <>
+                    <div className="col-md-4">
+                      <SkeletonVendor />
+                    </div>
+                    <div className="col-md-4">
+                      <SkeletonVendor />
+                    </div>
+                    <div className="col-md-4">
+                      <SkeletonVendor />
+                    </div>
+                  </>
+                }
+                endMessage={<h4>No store left to show</h4>}
+              >
+                {storeItems.map((item) => (
+                  <div
+                    className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 "
+                    key={item.id}
+                  >
+                    <WPStore store={item} />
+                  </div>
+                ))}
+              </InfiniteScroll>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default WPStores;

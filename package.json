@@ -26,6 +26,7 @@
     "react-icons": "^4.3.1",
     "react-image-lightbox": "^5.1.4",
     "react-images": "^0.6.7",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-jwt": "^1.1.4",
     "react-lazyload": "^3.2.0",
     "react-paystack": "^3.0.5",
