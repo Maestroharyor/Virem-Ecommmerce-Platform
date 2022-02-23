@@ -9,7 +9,7 @@ export const getStaticProps = async () => {
 
     const WPStores = await axios.get('https://virem.learnmur.com.ng/wp-json/dokan/v1/stores?page=1&per_page=100');
 
-    console.log(WPStores.data)
+    // console.log(WPStores.data)
 
     return{
         props: {

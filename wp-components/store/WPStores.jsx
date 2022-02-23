@@ -7,21 +7,25 @@ import { generateTempArray } from "../../utilities/common-helpers";
 import SkeletonVendor from "../../components/elements/skeletons/SkeletonVendor";
 
 const WPStores = ({ WPStoreData }) => {
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [storeItems, setStoreItems] = useState(WPStoreData);
 
-  console.log(storeItems);
+  //   console.log(storeItems);
+  
+  const filteredStoreItems = storeItems.filter(store => store.first_name.toLowerCase().includes(search.toLowerCase()) || store.last_name.toLowerCase().includes(search.toLowerCase()) || store.store_name.toLowerCase().includes(search.toLowerCase()))
+//   console.log(filteredStoreItems);
 
   const [hasMore, setHasMore] = useState(true);
   const [currentPage, setCurrentPage] = useState(2);
 
   const getMoreStore = async () => {
-    console.log("Srcolled");
+    // console.log("Srcolled");
     const newStores = await axios.get(
       `https://virem.learnmur.com.ng/wp-json/dokan/v1/stores?page=${currentPage}&per_page=100`
     );
 
-    console.log({ newStores });
+    // console.log({ newStores });
     setStoreItems((store) => [...store, ...newStores.data]);
     setCurrentPage(currentPage + 1);
     if (newStores.data.length === 0) {
@@ -47,6 +51,7 @@ const WPStores = ({ WPStoreData }) => {
                   className="form-control"
                   type="text"
                   placeholder="Search vendor..."
+                  onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
             </div>
@@ -75,9 +80,11 @@ const WPStores = ({ WPStoreData }) => {
                     </div>
                   </>
                 }
-                endMessage={<h4>No store left to show</h4>}
+                endMessage={
+                  <h4 className="pt-5 pb-5 fs-1">No stores left to show...</h4>
+                }
               >
-                {storeItems.map((item) => (
+                {filteredStoreItems.map((item) => (
                   <div
                     className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 "
                     key={item.id}
