@@ -32,13 +32,14 @@ class PanelMenu extends Component {
     };
 
     render() {
+        console.log(menuPrimary)
         return (
             <Menu
                 mode="inline"
                 openKeys={this.state.openKeys}
                 onOpenChange={this.onOpenChange}
                 className="menu--mobile-2">
-                {menuPrimary.menu_1.map((item) => {
+                {menuPrimary.menuPrimary.menu_1.map((item) => {
                     if (item.subMenu) {
                         return (
                             <SubMenu
