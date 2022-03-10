@@ -26,7 +26,7 @@ export async function getStaticProps(context) {
     const per_page =  7;
     const [latestReq, dealsReq
     ] = await  Promise.all([
-        WPProductRepository.getProducts({page, per_page, category: 1052}),
+        WPProductRepository.getProducts({page, per_page: 12, category: 1052}),
         WPProductRepository.getProducts({page, per_page, category: 1053}),
     ])
 
