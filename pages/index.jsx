@@ -66,7 +66,7 @@ const Index = (props) => {
             <HomeAdsColumns />
             <WPProductListHome 
             // categoryID={195}
-             title="Latest Products" data={props.genReq.items} />
+             title="Latest Products" categoryID={1052} data={props.genReq.items} />
             {/* <WPProductListHome categoryID={193} title="Men's Fashion" data={props.menReq.items} />
             <WPProductListHome categoryID={22} title="Amazing Fashion Discounts" data={props.fashionReq.items} />
             <WPProductListHome categoryID={240} title="Best Phone + Gadget Deals" data={props.phoneReq.items} />
