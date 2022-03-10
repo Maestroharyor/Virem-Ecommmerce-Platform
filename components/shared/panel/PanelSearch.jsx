@@ -58,6 +58,7 @@ function PanelSearch () {
                             type="text"
                             placeholder="Search something..."
                             onChange={e => handleSearch(e)}
+                            autoFocus={true}
                         /> 
                         {formLoad && <span className="mobile ps-form__action">
                             <Spin size="medium" />

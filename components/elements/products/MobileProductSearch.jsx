@@ -15,7 +15,9 @@ function MobileProductResult ({product}) {
                 <div className="ps-product__thumbnail">
                     <Link href="/product/[pid]" as={`/product/${product.id}`}>
                         <a>
-                            <img src={product.images.length > 1 ? `${product.images[1].src}` :    `${product.images[0].src}`} alt={product.name} />
+                            {product.images.length > 1 && <img src={product.images.length > 1 ? `${product.images[1].src}` :    `${product.images[0].src}`} alt={product.name} />}
+
+                            {product.images.length === 0 && <img src={`/static/img/undefined-product-thumbnail.jpg`} alt={product.name} />}
                         </a>
                     </Link>
                 </div>
