@@ -19,20 +19,20 @@ const HomeAds = props => {
     return (
         <div className="ps-home-ads my-5">
             <div className="ps-container">
-                <div className="row">
+                <div className="row align-items-end">
                     <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 ">
                         <Promotion
-                            link="https://topup.virem.com.ng"
-                            redirect
+                            link="/shop/category/Groceries-1054"
+                            // redirect
                             // image={promotion1 ? promotion1.image : null}
-                            image ='/static/img/banners/Airtime-Banner-1090-x-245.jpg'
+                            image ='/static/img/banners/save-more-on-groceries.jpeg'
                         />
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                         <Promotion
-                            link="/shop"
+                            link="/shop/category/phone-1055"
                             // image={promotion2 ? promotion2.image : null}
-                            image ='/static/img/banners/Shop-and-Win-Banner-530-x-245.jpg'
+                            image ='/static/img/banners/refurbished-phones.jpeg'
                         />
                     </div>
                 </div>
