@@ -13,22 +13,21 @@ const WPViremProducts = function () {
   return (
     <div className="wpviremproducts container mb-0 mb-md-5 py-1 py-md-5 text-white text-center p-0">
       <div className="d-flex flex-wrap px-4 pb-4">
-        <Link href="/shop/category/236">
+        <Link href="/shop/category/Foods-1018">
           <a className="d-block flex-fill products m-2 shadow-sm d-flex flex-column flex-md-row align-items-center rounded bg-light p-3">
             <FaHamburger className="s-1" />
             <p>Virem Food</p>
           </a>
         </Link>
 
+        <Link href="/coming-soon" passHref>
         <a
-          href="https://topup.virem.com.ng"
-          target="_blank"
           className="d-block flex-fill products m-2 shadow-sm d-flex flex-column flex-md-row align-items-center rounded bg-light p-3"
-          rel="noreferrer"
         >
           <FaMobile className="s-2" />
           <p>Airtime</p>
         </a>
+        </Link>
 
         <a
           href="https://vendor.virem.com.ng"
