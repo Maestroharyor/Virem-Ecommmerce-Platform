@@ -53,7 +53,7 @@ const HomeBanner = (props) => {
             <BannerItem
               source="/static/img/sliders/Food Banner 1230 x 425.jpg"
               key={2}
-              link="/shop"
+              link="/shop/category/Foods-1018"
             />
             <BannerItem
               source="/static/img/sliders/Sports Banner 1230 x 425.jpg"
@@ -63,7 +63,7 @@ const HomeBanner = (props) => {
             <BannerItem
               source="/static/img/sliders/Groceries Banner 867 x 416.jpg"
               key={2}
-              link="/shop"
+              link="/shop/category/Groceries-1054"
             />
           </Slider>
         </div>
@@ -75,8 +75,8 @@ const HomeBanner = (props) => {
             image="/static/img/banners/Fast Delivery 530 x 245 Banner.jpg"
           />
           <Promotion
-            link="https://livescores.virem.com.ng"
-            redirect={true}
+            link="/coming-soon"
+            // redirect={true}
             description="Check Live Football Updates on Virem LiveScores"
             // image={promotion2 ? promotion2.image : null}
             image="/static/img/banners/Virem Live Score Banner 530 x 245.jpg"
