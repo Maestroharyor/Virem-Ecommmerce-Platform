@@ -22,6 +22,8 @@ import {
 } from "../../../utilities/WPHelpers";
 import axios from "axios";
 
+const {Option} = Select
+
 const modalPaidSuccess = (type) => {
   notification[type]({
     message: "Payment Successful",
@@ -66,9 +68,42 @@ const modalNoCart = (type) => {
 };
 
 const WPFormCheckout = (props) => {
-  // const handleSelectChange = (e) => {
-  //     console.log(e)
-  // }
+  
+  const shippingAxisData = [
+    {
+      area: "Tanke",
+      price: 300
+    },
+    {
+      area: "Gaa-akanbi / Pipeline",
+      price: 500
+    },
+    {
+      area: "Sango road",
+      price: 700
+    },
+    {
+      area: "Offa Garage / Amoyo",
+      price: 700
+    },
+    {
+      area: "Taiwo / Gari Alimin",
+      price: 700
+    },
+    {
+      area: "Asa Dam / Airport",
+      price: 700
+    },
+    {
+      area: "Opo Malu / Okay",
+      price: 800
+    },
+    {
+      area: "Adewole / Adeta",
+      price: 800
+    },
+  ]
+
   useEffect(() => {
     setTimeout(() => {
       if (props.cart.cartItems.length === 0) {
@@ -118,73 +153,7 @@ const WPFormCheckout = (props) => {
 
   const initializePayment = usePaystackPayment(config);
 
-  useEffect(() => {
-    // setShippingAxisPrice(shippingAxisPrice + 1)
-    if (props.cart.cartItems.length > 1) {
-      setShippingAxisPrice(1000);
-    } else {
-      switch (shippingAxis) {
-        case `ILORIN-OUTSKIRTS AXIS`:
-          // shipping_total = 700
-          setShippingAxisPrice(700);
-          break;
-        case "OFFA-GARAGE AXIS":
-          // shipping_total = 400
-          setShippingAxisPrice(400);
-          break;
-        case "TAIWO AXIS":
-          // shipping_total = 400
-          setShippingAxisPrice(400);
-          break;
-        case "TANKE AXIS":
-          // shipping_total = 400
-          setShippingAxisPrice(400);
-          break;
-        case "GAMBARI-OJA AXIS":
-          // shipping_total = 500
-          setShippingAxisPrice(500);
-          break;
-        case "SANGO AXIS":
-          // shipping_total = 500
-          setShippingAxisPrice(500);
-          break;
-        case "OYUN AXIS":
-          // shipping_total = 600
-          setShippingAxisPrice(600);
-          break;
-        case "GERIN-ALIMI AXIS":
-          // shipping_total = 500
-          setShippingAxisPrice(500);
-          break;
-        case "GAA-AKANBI":
-          // shipping_total = 400
-          setShippingAxisPrice(400);
-          break;
-        case "HALIKMA-UNIVERSITY AXIS":
-          // shipping_total = 600
-          setShippingAxisPrice(600);
-          break;
-        case "ASA-DAM AXIS":
-          // shipping_total = 500
-          setShippingAxisPrice(500);
-          break;
-        case "FATE AXIS":
-          // shipping_total = 400
-          setShippingAxisPrice(400);
-          break;
-        case "AGBABIAKA AXIS":
-          // shipping_total = 400
-          setShippingAxisPrice(400);
-          break;
-        case "PAATA AXIS":
-          // shipping_total = 600
-          setShippingAxisPrice(600);
-          break;
-        default:
-          break;
-      }
-    }
-  }, [shippingAxis]);
+
 
   async function getCheckoutData() {
     const WPGateways = await WPOrderRepository.getPaymentGateWays();
@@ -435,7 +404,6 @@ const WPFormCheckout = (props) => {
               <button
                 type="submit"
                 className="ps-btn ps-btn--fullwidth"
-                type="submit"
               >
                 Place Order
               </button>
@@ -446,8 +414,8 @@ const WPFormCheckout = (props) => {
                 disabled
               >
                 Placing Order...
-                <div class="spinner-border text-light" role="status">
-                  <span class="sr-only">Loading...</span>
+                <div className="spinner-border text-light" role="status">
+                  <span className="sr-only">Loading...</span>
                 </div>
               </button>
             )}
@@ -539,92 +507,17 @@ const WPFormCheckout = (props) => {
               >
                 <Select
                   size="large"
-                  onChange={(e) => setShippingAxis(`${e.toUpperCase()} Axis`)}
+                  onChange={(val) => 
+                  {
+                    console.log(val)
+                    setShippingAxisPrice(val)
+                  }}
                 >
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="ilorin-outskirts"
-                  >
-                    Outskirts of Ilorin
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="offa-garage"
-                  >
-                    Offa Garage Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="taiwo"
-                  >
-                    Taiwo Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="tanke"
-                  >
-                    Tanke Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="gambari-oja"
-                  >
-                    Gambari/Oja Oba/Akerebiata Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="sango"
-                  >
-                    Sango Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="oyun"
-                  >
-                    Oyun Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="gerin-alimi"
-                  >
-                    Gerin Alimi
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="gaa-akanbi"
-                  >
-                    Gaa Akanbi
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="halikma-university"
-                  >
-                    Halikma University Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="asa-dam"
-                  >
-                    Asa Dam/Irewolede Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="fate"
-                  >
-                    Fate Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="agbabiaka"
-                  >
-                    Agbabiaka Axis
-                  </Select.Option>
-                  <Select.Option
-                    className="form-control ant-input"
-                    value="paata"
-                  >
-                    Paata Axis
-                  </Select.Option>
+                  {shippingAxisData.map(axis => (
+                    <Option className="form-control ant-input" key={axis.area} value={axis.price}>
+                        {axis.area}
+                    </Option>
+                  ))}
                 </Select>
               </Form.Item>
               {/* <Form.Item
@@ -795,97 +688,20 @@ const WPFormCheckout = (props) => {
                       },
                     ]}
                   >
-                    <Select
-                      size="large"
-                      onChange={(e) =>
-                        setShippingAxis(`${e.toUpperCase()} AXIS`)
-                      }
-                    >
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="ilorin-outskirts"
-                      >
-                        Outskirts of Ilorin
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="offa-garage"
-                      >
-                        Offa Garage Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="taiwo"
-                      >
-                        Taiwo Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="tanke"
-                      >
-                        Tanke Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="gambari-oja"
-                      >
-                        Gambari/Oja Oba/Akerebiata Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="sango"
-                      >
-                        Sango Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="oyun"
-                      >
-                        Oyun Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="gerin-alimi"
-                      >
-                        Gerin Alimi
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="gaa-akanbi"
-                      >
-                        Gaa Akanbi
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="halikma-university"
-                      >
-                        Halikma University Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="asa-dam"
-                      >
-                        Asa Dam/Irewolede Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="fate"
-                      >
-                        Fate Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="agbabiaka"
-                      >
-                        Agbabiaka Axis
-                      </Select.Option>
-                      <Select.Option
-                        className="form-control ant-input"
-                        value="paata"
-                      >
-                        Paata Axis
-                      </Select.Option>
-                    </Select>
+                   <Select
+                  size="large"
+                  onChange={(val) => 
+                  {
+                    console.log(val)
+                    setShippingAxisPrice(val)
+                  }}
+                >
+                  {shippingAxisData.map(axis => (
+                    <Option className="form-control ant-input" key={axis.area} value={axis.price}>
+                        {axis.area}
+                    </Option>
+                  ))}
+                </Select>
                   </Form.Item>
                 </div>
               </div>
@@ -1040,7 +856,7 @@ const WPFormCheckout = (props) => {
                     </figcaption>
                   </figure>
                 )}
-                <figure>
+                {/* <figure>
                   <div>
                     <h5 className="">LOGISTICS:</h5>
                     <Radio.Group className="d-flex flex-wrap">
@@ -1074,7 +890,7 @@ const WPFormCheckout = (props) => {
                       </Radio>
                     </Radio.Group>
                   </div>
-                </figure>
+                </figure> */}
 
                 <figure className="ps-block__total">
                   <figcaption>
